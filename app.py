@@ -1,11 +1,11 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-# Sayfa Yapılandırması
+# Sayfa Yapılandırması (Geniş ekran modu yapıldı)
 st.set_page_config(
     page_title="iyi ki doğdun ablam",
     page_icon="🎉",
-    layout="centered"
+    layout="wide"
 )
 
 html_code = """
@@ -55,7 +55,7 @@ html_code = """
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 2rem;
+            padding: 1.5rem;
             text-align: center;
             transition: opacity 0.8s ease, transform 0.8s ease;
         }
@@ -67,11 +67,11 @@ html_code = """
         }
 
         .lock-box {
-            background: rgba(30, 41, 59, 0.9);
+            background: rgba(30, 41, 59, 0.95);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 2.5rem;
+            padding: 2rem;
             border-radius: 20px;
-            max-width: 450px;
+            max-width: 400px;
             width: 100%;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
@@ -79,7 +79,7 @@ html_code = """
         .lock-box input {
             width: 100%;
             padding: 0.8rem 1rem;
-            margin: 1.5rem 0;
+            margin: 1.2rem 0;
             border-radius: 10px;
             border: 1px solid var(--primary);
             background: rgba(15, 23, 42, 0.8);
@@ -140,8 +140,9 @@ html_code = """
 
         .container {
             max-width: 900px;
+            width: 100%;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            padding: 1.5rem 1rem;
             position: relative;
             z-index: 1;
         }
@@ -152,7 +153,7 @@ html_code = """
         }
 
         h1 {
-            font-size: 2.8rem;
+            font-size: 2.3rem;
             background: linear-gradient(135deg, #f472b6, #a855f7, #38bdf8);
             -webkit-background-clip: text;
             background-clip: text;
@@ -162,7 +163,7 @@ html_code = """
         }
 
         p.subtitle {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #cbd5e1;
         }
 
@@ -171,9 +172,9 @@ html_code = """
             border: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(12px);
             border-radius: 20px;
-            padding: 2rem;
+            padding: 1.5rem;
             text-align: center;
-            margin: 2rem 0;
+            margin: 1.5rem 0;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             position: relative;
         }
@@ -182,7 +183,7 @@ html_code = """
             position: relative;
             width: 200px;
             height: 180px;
-            margin: 2rem auto 1rem;
+            margin: 1.5rem auto 1rem;
             cursor: pointer;
             transition: transform 0.2s;
         }
@@ -252,9 +253,15 @@ html_code = """
 
         .messages-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        @media (min-width: 600px) {
+            .messages-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         .card {
@@ -262,7 +269,7 @@ html_code = """
             border: 1px solid rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(10px);
             border-radius: 16px;
-            padding: 1.5rem;
+            padding: 1.2rem;
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
@@ -272,20 +279,20 @@ html_code = """
         }
 
         .card-icon {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
+            margin-bottom: 0.4rem;
         }
 
         .card-title {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #f472b6;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
             font-weight: bold;
         }
 
         .card-text {
             color: #cbd5e1;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             line-height: 1.5;
         }
 
@@ -294,8 +301,8 @@ html_code = """
             border: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(12px);
             border-radius: 20px;
-            padding: 2rem;
-            margin: 2rem 0;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
             text-align: center;
         }
 
@@ -303,17 +310,24 @@ html_code = """
             background: linear-gradient(135deg, #ec4899, #8b5cf6);
             color: white;
             border: none;
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
+            padding: 0.9rem 1.8rem;
+            font-size: 1rem;
             font-weight: bold;
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
+            width: 100%;
+        }
+
+        @media (min-width: 600px) {
+            .envelope-btn {
+                width: auto;
+            }
         }
 
         .envelope-btn:hover {
-            transform: translateY(-3px) scale(1.05);
+            transform: translateY(-3px) scale(1.02);
             box-shadow: 0 6px 20px rgba(236, 72, 153, 0.6);
         }
 
@@ -325,25 +339,25 @@ html_code = """
             text-align: left;
             margin-top: 1.5rem;
             background: rgba(15, 23, 42, 0.8);
-            padding: 0 1.5rem;
+            padding: 0 1rem;
             border-radius: 12px;
             border-left: 4px solid var(--primary);
             line-height: 1.8;
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #e2e8f0;
         }
 
         .letter-content.open {
-            max-height: 2000px;
+            max-height: 2500px;
             opacity: 1;
-            padding: 1.5rem;
+            padding: 1.2rem;
         }
 
         footer {
             text-align: center;
             padding: 1rem 0;
             color: #94a3b8;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
     </style>
 </head>
@@ -406,7 +420,7 @@ html_code = """
                     <div class="card-title">temizlik ve düzen yardımcısı</div>
                     <div class="card-text">evde yanlışlıkla bir şeyler döküldüğünde veya ortalık kirlendiğinde hiç ikiletmeden hemen koşup temizlemeye yardım eden gizli kahramanımızsın</div>
                 </div>
-                <div class="card">
+                <div class="card" style="grid-column: 1 / -1;">
                     <div class="card-icon">🌟</div>
                     <div class="card-title">ilham kaynağı</div>
                     <div class="card-text">gücün sabrın ve neşenle her zaman hayatıma ışık tutuyorsun yeni yaşın sana katbekat mutluluk ve huzur getirsin</div>
@@ -449,7 +463,6 @@ html_code = """
                     lockScreen.style.display = 'none';
                     document.getElementById('main-content').style.display = 'block';
                     createHearts();
-                    // Giriş patlama konfetisi
                     confetti({ particleCount: 150, spread: 90, origin: { y: 0.5 } });
                 }, 700);
             } else {
@@ -476,12 +489,10 @@ html_code = """
             document.getElementById('flame2').classList.add('off');
             document.getElementById('flame3').classList.add('off');
             
-            // İstediğin yeni pasta mesajı
             document.getElementById('cake-msg').innerHTML = "✨ dileğin kabul oldu benden istediğin bir şey olsun söyle halledelim iyi ki doğdun ✨";
             document.getElementById('cake-msg').style.color = "#f472b6";
             document.getElementById('cake-msg').style.fontWeight = "bold";
             
-            // Büyük konfeti gösterisi
             confetti({ particleCount: 200, spread: 100, origin: { y: 0.6 } });
             setTimeout(() => {
                 confetti({ particleCount: 100, angle: 60, spread: 55, origin: { x: 0 } });
